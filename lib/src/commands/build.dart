@@ -4,7 +4,7 @@ class BuildCommand extends Command {
   @override
   ArgParser get arguments =>
     new ArgParser()
-      ..addFlag("verbose", defaultsTo: false, negatable: false, help: "Enables Verbose Output")
+      ..addFlag("verbose", abbr: "v", defaultsTo: false, negatable: false, help: "Enables Verbose Output")
       ..addOption("arch", abbr: "a", allowed: POSSIBLE_ARCHS, allowMultiple: false, defaultsTo: "ia32")
       ..addOption("mode", abbr: "m", allowed: POSSIBLE_MODES, allowMultiple: false, defaultsTo: "release");
   
