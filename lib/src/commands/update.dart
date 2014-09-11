@@ -10,6 +10,7 @@ class UpdateCommand extends Command {
   
   @override
   void run(ArgResults args) {
+    verifyDartSource();
     executeCommands([
       "gclient sync -n",
       "gclient runhooks"
