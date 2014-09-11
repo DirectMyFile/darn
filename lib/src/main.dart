@@ -48,3 +48,5 @@ void main(List<String> args) {
   
   cmd.run(opts.command);
 }
+
+Command getCommand(String name) => commands.firstWhere((cmd) => cmd.name == name, orElse: () => null);
