@@ -16,3 +16,4 @@ part "src/verify.dart";
 part "src/config.dart";
 part "src/commands/update.dart";
 part "src/commands/build.dart";
+part "src/commands/fetch.dart";

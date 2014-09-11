@@ -1,7 +1,9 @@
 part of darn;
 
 final List<Command> commands = [
-  new BuildCommand()
+  new BuildCommand(),
+  new FetchCommand(),
+  new UpdateCommand()
 ];
 
 void main(List<String> args) {
