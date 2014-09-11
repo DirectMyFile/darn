@@ -14,4 +14,5 @@ part "src/command.dart";
 part "src/executor.dart";
 part "src/verify.dart";
 part "src/config.dart";
+part "src/commands/update.dart";
 part "src/commands/build.dart";
