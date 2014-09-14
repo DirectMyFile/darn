@@ -12,6 +12,7 @@ class UpdateCommand extends Command {
   void run(ArgResults args) {
     verifyDartSource();
     executeCommands([
+      "git cl rebase",
       "gclient sync -n",
       "gclient runhooks"
     ]);
