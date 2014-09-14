@@ -18,13 +18,15 @@ class BuildCommand extends Command {
     
     String mode = args['mode'];
     
+    bool verbose = args['verbose'];
+    
     var targets = args.rest.isNotEmpty ? args.rest : ["create_sdk"];
     
     verifyDartSource();
     
     var commands = [];
     
-    var cmd = "python2 tools/build.py -m ${mode} -a ${arch} ${targets.join(" ")}";
+    var cmd = "python2 tools/build.py ${verbose ? "-v" : ""} -m ${mode} -a ${arch} ${targets.join(" ")}";
     
     commands.add(cmd);
     
