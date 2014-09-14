@@ -10,9 +10,10 @@ class UpdateCommand extends Command {
   
   @override
   void run(ArgResults args) {
+    verifySystemTools();
     verifyDartSource();
     executeCommands([
-      "git cl rebase",
+      "@git cl rebase",
       "gclient sync -n",
       "gclient runhooks"
     ]);

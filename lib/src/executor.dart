@@ -9,12 +9,17 @@ Future executeCommands(List<String> commands) {
 
 
     future = future.then((value) {
+      bool allowExitCodeOne = false;
+      if (executable.startsWith("@")) {
+        allowExitCodeOne = true;
+        executable = executable.substring(1);
+      }
       return Process.start(executable, split).then((process) {
         inheritIO(process);
 
         return process.exitCode;
       }).then((exitCode) {
-        if (exitCode != 0) {
+        if (exitCode != 0 && (allowExitCodeOne ? exitCode != 1 : true)) {
           print("Command '${command}' exited with exit code ${exitCode}");
           exit(1);
         }

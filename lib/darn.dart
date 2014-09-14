@@ -9,6 +9,8 @@ import "package:alpha/async.dart";
 import "package:alpha/console.dart";
 import "package:alpha/io.dart";
 
+import "package:path/path.dart" as path;
+
 part "src/main.dart";
 part "src/command.dart";
 part "src/executor.dart";

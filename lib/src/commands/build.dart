@@ -13,6 +13,7 @@ class BuildCommand extends Command {
   
   @override
   void run(ArgResults args) {
+    verifySystemTools();
     
     String arch = args['arch'];
     

@@ -10,6 +10,7 @@ class FetchCommand extends Command {
   
   @override
   void run(ArgResults args) {
+    verifySystemTools();
     if (isDartSource()) {
       getCommand("update").execute([]);
     } else {
