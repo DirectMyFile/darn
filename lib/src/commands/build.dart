@@ -27,7 +27,7 @@ class BuildCommand extends Command {
     
     var commands = [];
     
-    var cmd = "python2 tools/build.py ${verbose ? "-v" : ""} -m ${mode} -a ${arch} ${targets.join(" ")}";
+    var cmd = "python2 tools/build.py${verbose ? ' -v' : ''} -m ${mode} -a ${arch} ${targets.join(" ")}";
     
     commands.add(cmd);
     
