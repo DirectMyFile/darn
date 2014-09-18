@@ -25,14 +25,7 @@ bool isOperatingSystem(String name) => OS_DETECTIONS[name]();
 
 String detectOperatingSystem() {
   if (_detectedOS == null) {
-    for (var detector in OS_DETECTIONS.values) {
-      if (detector()) {
-        _detectedOS = OS_DETECTIONS.keys.firstWhere((it) => OS_DETECTIONS[it] == detector);
-        break;
-      }
-    }
-    
-    if (_detectedOS == null) _detectedOS = "Unknown";
+    _detectedOS = OS_DETECTIONS.keys.firstWhere((name) => OS_DETECTIONS[name](), orElse: () => "Unknown");
   }
   
   return _detectedOS;
