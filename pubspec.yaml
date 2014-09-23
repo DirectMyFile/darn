@@ -1,6 +1,7 @@
 name: darn
 version: 1.0.0
-description: Build Tool for Dart Project Developers
+description: >
+  Build Tool for Dart Project Developers
 authors:
 - "Kenneth Endfinger <kaendfinger@gmail.com>"
 homepage: https://github.com/DirectMyFile/darn
