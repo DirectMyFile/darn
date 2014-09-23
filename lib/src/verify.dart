@@ -22,14 +22,14 @@ void verifySystemTools() {
   
   bool findCommand(String name) {
     for (var SEARCH_PATH in SEARCH_PATHS) {
-      var tryNames = [name, "${name}.exe", "${name}.bat", "${name}.cmd"];
+      var tryNames = <String>[name, "${name}.exe", "${name}.bat", "${name}.cmd"];
       
       
       for (var NAME in tryNames) {
         var file = new File(path.join(SEARCH_PATH, NAME));
         
         if (file.existsSync()) {
-          return true;   
+          return true;
         }
       }
     }
@@ -37,8 +37,14 @@ void verifySystemTools() {
     return false;
   }
   
-  for (var cmd in ["git", "git-cl", "gclient", "python"]) {
-    if (!findCommand(cmd)) {
+  for (var cmd in REQUIRED_TOOLS) {
+    List<String> tryCmds = [cmd];
+    
+    if (cmd.contains("|")) {
+      tryCmds = cmd.split("|").map((it) => it.trim()).toList();
+    }
+    
+    if (!tryCmds.any(findCommand)) {
       print("ERROR: ${cmd} is required, but was not found.");
       exit(1);
     }
