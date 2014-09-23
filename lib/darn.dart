@@ -5,10 +5,8 @@ import "dart:io";
 
 import "package:args/args.dart";
 
-import "package:alpha/async.dart";
 import "package:alpha/core.dart";
 import "package:alpha/console.dart";
-import "package:alpha/io.dart";
 
 import "package:path/path.dart" as path;
 

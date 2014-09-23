@@ -21,11 +21,11 @@ void verifySystemTools() {
   List<String> SEARCH_PATHS = PATH.split(isWindows ? ";" : ":");
   
   bool findCommand(String name) {
-    FINDER: for (var SEARCH_PATH in SEARCH_PATHS) {
+    for (var SEARCH_PATH in SEARCH_PATHS) {
       var tryNames = [name, "${name}.exe", "${name}.bat", "${name}.cmd"];
       
       
-      NAME_LOOP: for (var NAME in tryNames) {
+      for (var NAME in tryNames) {
         var file = new File(path.join(SEARCH_PATH, NAME));
         
         if (file.existsSync()) {
