@@ -9,7 +9,7 @@ void verifyDartSource() {
 
 bool isDartSource() {
   var cwd = Directory.current;
-  var buildPy = new File(cwd.path + Platform.pathSeparator + "tools/build.py");
+  var buildPy = new File(path.join(cwd.path, "tools/build.py"));
   return buildPy.existsSync();
 }
 
@@ -23,7 +23,6 @@ void verifySystemTools() {
   bool findCommand(String name) {
     for (var SEARCH_PATH in SEARCH_PATHS) {
       var tryNames = <String>[name, "${name}.exe", "${name}.bat", "${name}.cmd"];
-      
       
       for (var NAME in tryNames) {
         var file = new File(path.join(SEARCH_PATH, NAME));
@@ -41,7 +40,10 @@ void verifySystemTools() {
     List<String> tryCmds = [cmd];
     
     if (cmd.contains("|")) {
-      tryCmds = cmd.split("|").map((it) => it.trim()).toList();
+      tryCmds = cmd
+          .split("|")
+          .map((it) => it.trim())
+          .toList();
     }
     
     if (!tryCmds.any(findCommand)) {
