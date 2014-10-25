@@ -1,5 +1,7 @@
 part of darn;
 
+typedef T Producer<T>();
+
 final Map<String, Producer<bool>> OS_DETECTIONS = {
   "Arch Linux": () => new File("/etc/arch-release").existsSync(),
   "Debian": () => new File("/etc/debian-release").existsSync(),
